@@ -5,6 +5,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Sidebar } from "@/components/sidebar"
 import { Header } from "@/components/header"
+import { SidebarProvider } from "@/components/sidebar-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -22,13 +23,15 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} bg-[#0F123B]`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
-          <div className="min-h-screen bg-gradient-to-br from-[#0F123B] via-[#090D2E] to-[#020515]">
-            <Sidebar />
-            <div className="ml-[220px]">
-              <Header />
-              <main>{children}</main>
+          <SidebarProvider>
+            <div className="min-h-screen bg-gradient-to-br from-[#0F123B] via-[#090D2E] to-[#020515]">
+              <Sidebar />
+              <div className="md:ml-[220px]">
+                <Header />
+                <main>{children}</main>
+              </div>
             </div>
-          </div>
+          </SidebarProvider>
         </ThemeProvider>
       </body>
     </html>

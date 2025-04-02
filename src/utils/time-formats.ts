@@ -1,3 +1,5 @@
+// @TODO: move to lib
+
 export interface Runtime {
     hours: number
     minutes: number
