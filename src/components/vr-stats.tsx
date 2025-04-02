@@ -167,12 +167,12 @@ export function VRStats({ title, value, change, timePeriod: initialTimePeriod, t
         </CardHeader>
         <CardContent>
           <motion.div
-            className="flex items-center justify-between"
+            className="flex flex-col sm:flex-row sm:items-center sm:justify-between"
             variants={contentVariants}
             initial="initial"
             animate="animate"
           >
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-3 mb-3 sm:mb-0">
               <span className="text-2xl font-bold">{value}</span>
               {change && (
                 <motion.div variants={changeChipVariants} initial="initial" animate="animate">
