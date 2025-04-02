@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} bg-[#0F123B]`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+        <ThemeProvider defaultTheme="dark">
           <SidebarProvider>
             <div className="min-h-screen bg-gradient-to-br from-[#0F123B] via-[#090D2E] to-[#020515]">
               <Sidebar />
