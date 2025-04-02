@@ -8,9 +8,9 @@ type Theme = "dark" | "light" | "system"
 type ThemeProviderProps = {
   children: React.ReactNode
   defaultTheme?: Theme
-  attribute?: string
+  // attribute?: string
   enableSystem?: boolean
-  disableTransitionOnChange?: boolean
+  // disableTransitionOnChange?: boolean
 }
 
 type ThemeProviderState = {
@@ -28,9 +28,9 @@ const ThemeProviderContext = createContext<ThemeProviderState>(initialState)
 export function ThemeProvider({
   children,
   defaultTheme = "dark",
-  attribute = "class",
+  // attribute = "class",
   enableSystem = false,
-  disableTransitionOnChange = false,
+  // disableTransitionOnChange = false,
   ...props
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(defaultTheme)
@@ -46,7 +46,6 @@ export function ThemeProvider({
 
     const root = window.document.documentElement
 
-    // Remove old class
     root.classList.remove("light", "dark")
 
     // Add new class based on theme

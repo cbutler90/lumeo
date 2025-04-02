@@ -18,6 +18,18 @@ interface VRStatsProps {
   type: "line" | "bar"
 }
 
+// Define proper types for the tooltip components
+interface ChartTooltipProps {
+  active?: boolean
+  payload?: Array<{
+    value: number
+    dataKey: string
+    name: string
+  }>
+  label?: string
+}
+
+// Export as default for lazy loading compatibility
 export function VRStats({ title, value, change, timePeriod: initialTimePeriod, type }: VRStatsProps) {
   const [timePeriod, setTimePeriod] = useState(initialTimePeriod)
 
@@ -95,8 +107,8 @@ export function VRStats({ title, value, change, timePeriod: initialTimePeriod, t
     },
   }
 
-  // Tooltip components
-  const BarTooltip = ({ active, payload, label }: any) => {
+  // Tooltip components with proper type definitions
+  const BarTooltip = ({ active, payload, label }: ChartTooltipProps) => {
     if (active && payload && payload.length) {
       return (
         <div className="bg-[#1e2142] border border-[#3e4161] p-2 rounded-md shadow-lg">
@@ -108,7 +120,7 @@ export function VRStats({ title, value, change, timePeriod: initialTimePeriod, t
     return null
   }
 
-  const LineTooltip = ({ active, payload, label }: any) => {
+  const LineTooltip = ({ active, payload, label }: ChartTooltipProps) => {
     if (active && payload && payload.length) {
       return (
         <div className="bg-[#1e2142] border border-[#3e4161] p-2 rounded-md shadow-lg">
@@ -142,7 +154,12 @@ export function VRStats({ title, value, change, timePeriod: initialTimePeriod, t
   ]
 
   return (
-    <motion.div variants={cardVariants} initial="initial" animate="animate">
+    <motion.div
+      variants={cardVariants}
+      initial="initial"
+      animate="animate"
+      style={{ willChange: "opacity, transform" }}
+    >
       <Card className="bg-[linear-gradient(135deg,#252a59_0%,#1e2142_50%,#171b36_100%)]">
         <CardHeader className="flex flex-row items-center justify-between -mb-3 pb-1">
           <CardTitle className="text-base font-medium">{title}</CardTitle>
@@ -230,7 +247,7 @@ export function VRStats({ title, value, change, timePeriod: initialTimePeriod, t
                       fillOpacity={1}
                       fill="url(#colorValue)"
                       strokeWidth={2}
-                      animationDuration={1500}
+                      animationDuration={800}
                       animationEasing="ease-in-out"
                     />
                   </AreaChart>
@@ -263,7 +280,7 @@ export function VRStats({ title, value, change, timePeriod: initialTimePeriod, t
                       dataKey="value"
                       fill="url(#barGradient)"
                       radius={[4, 4, 0, 0]}
-                      animationDuration={1500}
+                      animationDuration={800}
                       animationEasing="ease-out"
                       maxBarSize={20}
                     />
@@ -277,3 +294,5 @@ export function VRStats({ title, value, change, timePeriod: initialTimePeriod, t
     </motion.div>
   )
 }
+
+export default VRStats
