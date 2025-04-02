@@ -13,11 +13,15 @@ import {
   FileText,
   BarChart3,
   Settings,
+  X,
 } from "lucide-react"
-import { MobileSidebar } from "@/components/mobile-sidebar"
+import { useSidebar } from "@/components/sidebar-provider"
 
-export function Sidebar() {
+export function MobileSidebar() {
   const pathname = usePathname()
+  const { isOpen, close } = useSidebar()
+
+  console.log("MobileSidebar rendering, isOpen:", isOpen)
 
   const navigation = [
     { name: "Dashboard", href: "/", icon: LayoutGrid },
@@ -31,13 +35,21 @@ export function Sidebar() {
     { name: "Reports", href: "/reports", icon: BarChart3 },
   ]
 
+  if (!isOpen) return null
+
   return (
     <>
-      {/* Desktop Sidebar */}
-      <div className="fixed top-0 left-0 w-[220px] bg-[#7E8FFF]/10 border-r border-[#64748B]/20 p-8 text-white h-screen overflow-y-auto z-10 hidden md:block">
+      {/* Backdrop - using a very high z-index */}
+      <div className="fixed inset-0 bg-black/50 z-[9000]" onClick={close} />
+
+      {/* Sidebar - using an even higher z-index */}
+      <div className="fixed top-0 left-0 w-[280px] bg-[#7E8FFF]/10 backdrop-blur-md border-r border-[#64748B]/20 p-6 text-white h-screen overflow-y-auto z-[9999]">
         <div className="h-full flex flex-col">
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center justify-between mb-8">
             <img src="/lumeo-logo.svg" alt="Lumeo Logo" className="w-auto" />
+            <button onClick={close} className="text-white/60 hover:text-white/87 p-2">
+              <X className="h-5 w-5" />
+            </button>
           </div>
 
           <nav className="flex flex-col justify-between h-full">
@@ -76,8 +88,6 @@ export function Sidebar() {
           </nav>
         </div>
       </div>
-
-      <MobileSidebar />
     </>
   )
 }
