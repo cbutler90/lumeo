@@ -13,7 +13,7 @@ export function DashboardWelcome({ username = "Christine" }: DashboardWelcomePro
   const [customizeMode, setCustomizeMode] = useState(false)
 
   return (
-    <div className="flex items-center justify-between py-2">
+    <div className="flex md:items-center md:justify-between pb-2 md:pt-2">
       <motion.h1
         className="text-2xl font-bold text-white"
         initial={{ opacity: 0, y: -20 }}
@@ -23,7 +23,7 @@ export function DashboardWelcome({ username = "Christine" }: DashboardWelcomePro
         Welcome, {username}!
       </motion.h1>
 
-      <div className="flex items-center space-x-2">
+      <div className="hidden md:flex items-center space-x-2">
         <Switch
           id="customize-mode"
           checked={customizeMode}

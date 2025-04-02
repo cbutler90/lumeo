@@ -13,7 +13,7 @@ import { PageTransition } from "@/components/page-transition"
 export default function Dashboard() {
   return (
     <PageTransition>
-      <div className="px-6 md:px-10 pb-10 pt-8 text-white/98">
+      <div className="px-6 md:px-10 pb-10 pt-6 md:pt-8 text-white/98">
         <DashboardWelcome />
 
         <div className="grid grid-cols-12 gap-6 mt-4">
