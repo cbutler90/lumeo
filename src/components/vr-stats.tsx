@@ -186,10 +186,10 @@ export function VRStats({ title, value, change, timePeriod: initialTimePeriod, t
                 <Button
                   variant="outline"
                   size="sm"
-                  className="h-8 border-[#2e3151] text-gray-400 bg-transparent hover:bg-[#2e3151] hover:text-white"
+                  className="h-8 border-[#2e3151] text-gray-400 bg-transparent hover:bg-[#2e3151] hover:text-white max-w-[150px] group"
                 >
-                  {timePeriod}
-                  <ChevronDown className="ml-2 h-4 w-4" />
+                  <span className="truncate mr-1">{timePeriod}</span>
+                  <ChevronDown className="h-4 w-4 flex-shrink-0" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent
