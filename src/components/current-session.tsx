@@ -105,13 +105,13 @@ export function CurrentSession() {
       video: "/videos/carscan.mov",
       duration: formatRuntime(thumbnailRuntimes[3]),
     },
-    // {
-    //   id: 5,
-    //   title: "Environmental Orientation: Spaceway 03",
-    //   image: "/videos/thumbnails/tunnel-thumb.svg?height=112&width=200&text=Session 3",
-    //   video: "/videos/tunnel.mov",
-    //   duration: formatRuntime(thumbnailRuntimes[4]),
-    // },
+    {
+      id: 5,
+      title: "Environmental Orientation: Spaceway 03",
+      image: "/videos/thumbnails/tunnel-thumb.svg?height=112&width=200&text=Session 3",
+      video: "/videos/tunnel.mov",
+      duration: formatRuntime(thumbnailRuntimes[4]),
+    },
     {
       id: 6,
       title: "Field Readiness Exercise: Terrain Navigation",
