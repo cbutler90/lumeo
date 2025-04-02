@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button"
 import { Users } from "lucide-react"
 import { formatRuntime, incrementRuntime, type Runtime } from "@/utils/time-formats"
 
+// @TODO: need to fix performance with this component. I tried breaking this component up into smaller components and it really killed performance so we need to find a better way to do this.
+
 interface ActivityNotification {
   id: string
   user: {
@@ -81,42 +83,42 @@ export function CurrentSession() {
       id: 1,
       title: "Mastering Modern Sedans: VR Engine Diagnostics & Repair",
       image: "/videos/thumbnails/instructor-thumb.svg?height=112&width=200&text=Session 1",
-      video: "/videos/instructor.mov",
+      video: "/videos/instructor.mp4",
       duration: formattedRuntime,
     },
     {
       id: 2,
       title: "Engine Diagnostics",
       image: "/videos/thumbnails/driving-thumb.svg?height=112&width=200&text=Session 1",
-      video: "/videos/driving.mov",
+      video: "/videos/driving.mp4",
       duration: formatRuntime(thumbnailRuntimes[1]),
     },
     {
       id: 3,
       title: "Transmission Repair",
       image: "/videos/thumbnails/carview-thumb.svg?height=112&width=200&text=Session 2",
-      video: "/videos/carview.mov",
+      video: "/videos/carview.mp4",
       duration: formatRuntime(thumbnailRuntimes[2]),
     },
     {
       id: 4,
       title: "Brake System Overview",
       image: "/videos/thumbnails/carscan-thumb.svg?height=112&width=200&text=Session 3",
-      video: "/videos/carscan.mov",
+      video: "/videos/carscan.mp4",
       duration: formatRuntime(thumbnailRuntimes[3]),
     },
     {
       id: 5,
       title: "Environmental Orientation: Spaceway 03",
       image: "/videos/thumbnails/tunnel-thumb.svg?height=112&width=200&text=Session 3",
-      video: "/videos/tunnel.mov",
+      video: "/videos/tunnel.mp4",
       duration: formatRuntime(thumbnailRuntimes[4]),
     },
     {
       id: 6,
       title: "Field Readiness Exercise: Terrain Navigation",
       image: "/videos/thumbnails/walking-thumb.svg?height=112&width=200&text=Session 3",
-      video: "/videos/walking.mov",
+      video: "/videos/walking.mp4",
       duration: formatRuntime(thumbnailRuntimes[5]),
     },
   ]
@@ -645,7 +647,7 @@ export function CurrentSession() {
           <video
             ref={mainVideoRef}
             className="w-full h-full object-cover"
-            src={sessionThumbnails[activeSession].video || "/videos/instructor.mov"}
+            src={sessionThumbnails[activeSession].video || "/videos/instructor.mp4"}
             muted
             loop
             playsInline

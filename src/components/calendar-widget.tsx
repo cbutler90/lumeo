@@ -43,10 +43,11 @@ export function CalendarWidget() {
     const currentYear = getYear(today)
     const currentMonth = getMonth(today)
 
+    // @TODO: need to randomize events and have no more than 3 display on a given day for now
     setEvents([
       {
         id: "1",
-        date: new Date(currentYear, currentMonth, 2),
+        date: new Date(currentYear, currentMonth, 21),
         title: "Training Workshop",
         time: "12:00 PM - 1:00 PM",
         participants: 13,
