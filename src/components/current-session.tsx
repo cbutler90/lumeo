@@ -692,7 +692,7 @@ export function CurrentSession() {
                 </Avatar>
                 <div className="ml-2 md:ml-3">
                   <p className="text-white text-sm md:text-base font-medium">
-                    <span className="hidden md:inline">{currentStreamer}'s Live Stream</span>
+                    <span className="hidden md:inline">{currentStreamer}&apos;s Live Stream</span>
                     <span className="md:hidden">{currentStreamer}</span>
                   </p>
                   <div className="flex items-center text-gray-400">

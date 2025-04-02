@@ -35,7 +35,7 @@ export function CalendarWidget() {
   const today = new Date()
   const [currentMonth, setCurrentMonth] = useState<Date>(new Date())
   const [selectedDay, setSelectedDay] = useState<Date>(new Date())
-  const [visibleWeeks, setVisibleWeeks] = useState<number>(5)
+  const visibleWeeks = 5
   const [events, setEvents] = useState<CalendarEvent[]>([])
 
   // Initialize events with current date
