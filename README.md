@@ -47,7 +47,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 /src
  ├── /app        # Next.js App Router pages
  ├── /components # Reusable UI components (shadcn-based)
- ├── /styles     # TailwindCSS global styles
  ├── /lib        # Utility functions & API handlers
  ├── /store      # Zustand state management
+ ├── tailwind.config.ts # Tailwind theme customization
+ ├── postcss.config.js  # PostCSS setup for Tailwind
  ```
