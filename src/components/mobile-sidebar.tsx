@@ -39,10 +39,8 @@ export function MobileSidebar() {
 
   return (
     <>
-      {/* Backdrop - using a very high z-index */}
       <div className="fixed inset-0 bg-black/50 z-[9000]" onClick={close} />
 
-      {/* Sidebar - using an even higher z-index */}
       <div className="fixed top-0 left-0 w-[280px] bg-[#7E8FFF]/10 backdrop-blur-md border-r border-[#64748B]/20 p-6 text-white h-screen overflow-y-auto z-[9999]">
         <div className="h-full flex flex-col">
           <div className="flex items-center justify-between mb-8">
@@ -53,7 +51,7 @@ export function MobileSidebar() {
           </div>
 
           <nav className="flex flex-col justify-between h-full">
-            <div className="flex-1 space-y-2">
+            <div className="flex-1 space-y-1">
               {navigation.map((item) => {
                 const isActive = pathname === item.href
                 return (
